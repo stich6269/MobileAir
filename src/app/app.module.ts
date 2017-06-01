@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routes';
 
 import { DeviceListModule } from './device-list/index';
-import { MdToolbarModule } from '@angular/material';
+import { AllSensorsModule } from './all-sensors/index';
 
 @NgModule({
 	declarations: [
@@ -20,9 +20,9 @@ import { MdToolbarModule } from '@angular/material';
 		HttpModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		MdToolbarModule,
 
-		DeviceListModule
+		DeviceListModule,
+		AllSensorsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

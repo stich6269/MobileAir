@@ -1,3 +1,16 @@
-<p>
-  device-list works!
-</p>
+<app-toolbar title="Мои устройства"></app-toolbar>
+
+<md-list>
+	<md-list-item *ngFor="let device of devices" (click)="onDeviceClick(device)">
+		<md-icon *ngIf="!device.isActive" md-list-icon>cast</md-icon>
+		<md-icon *ngIf="device.isActive" md-list-icon class="green">cast_connected</md-icon>
+
+		<h4 md-line>{{device.name}}</h4>
+		<p md-line>{{device.id}}</p>
+		<md-icon>more_vert</md-icon>
+	</md-list-item>
+</md-list>
+
+<a md-fab color="primary" routerLink="." class="add-button">
+	<md-icon>add</md-icon>
+</a>
