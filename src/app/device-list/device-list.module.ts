@@ -8,4 +8,5 @@ import { DeviceListComponent } from './device-list.component';
   ],
   declarations: [DeviceListComponent]
 })
+
 export class DeviceListModule { }
