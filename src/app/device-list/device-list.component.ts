@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IDeviceListItem } from './device-service/device.interfaces';
 import { DeviceListService } from './device-service/device.service';
 import { Router } from '@angular/router';
+import { DeviceDataService } from '../shared/services/device-data/device-data.service';
+import { IDevice } from '../shared/services/device-data/device.interfaces';
+import { HeaderService } from '../shared/services/header/header.service';
 
 @Component({
 	selector: 'app-device-list',
@@ -9,16 +11,20 @@ import { Router } from '@angular/router';
 	styleUrls: ['./device-list.component.scss']
 })
 export class DeviceListComponent {
-	devices: Array<IDeviceListItem>;
+	devices: Array<IDevice>;
+
 	constructor(
 		private deviceListService: DeviceListService,
+		private deviceDataService: DeviceDataService,
+		private headerService: HeaderService,
 		private router: Router) {
-		this.devices = this
-			.deviceListService
-			.getDeviceList();
+		
+		this.devices = this.deviceListService.getDeviceList();
+		this.headerService.setHeader({title: 'Мои устройства'})
 	}
 
-	onDeviceClick(device: IDeviceListItem): void {
-		this.router.navigate(['./all-sensors', device.id]);
+	onDeviceClick(device: IDevice): void {
+		this.deviceDataService.setDevice(device);
+		this.router.navigate(['./main']);
 	}
 }

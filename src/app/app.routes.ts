@@ -2,17 +2,12 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
 import { DeviceListRouter } from './device-list/index';
-import { AllSensorsRoutes } from './all-sensors/index';
+import { MainRoutes } from './main/index';
 
 
 const routes: Route[] = [
-	{
-		path: '',
-		redirectTo: 'all-sensors/225',
-		pathMatch: 'full'
-	},
 	DeviceListRouter,
-	AllSensorsRoutes
+	MainRoutes
 ];
 
 @NgModule({

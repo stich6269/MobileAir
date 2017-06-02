@@ -1,6 +1,6 @@
-import { IDeviceListItem } from './device.interfaces';
+import { IDevice } from '../../shared/services/device-data/device.interfaces';
 
-export const DEVICE_LIST: Array<IDeviceListItem> = [
+export const DEVICE_LIST: Array<IDevice> = [
 	{
 		name: 'Ванная комната',
 		id: 'sdf4654df65sd1f65sdf16',

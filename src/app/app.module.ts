@@ -8,7 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routes';
 
 import { DeviceListModule } from './device-list/index';
-import { AllSensorsModule } from './all-sensors/index';
+import { MainModule } from './main/index';
+
+import { DeviceDataService } from './shared/services/device-data/device-data.service';
+import { HeaderService } from './shared/services/header/header.service';
+import { ToolbarModule } from './shared/components/toolbar/toolbar.module';
 
 @NgModule({
 	declarations: [
@@ -20,11 +24,15 @@ import { AllSensorsModule } from './all-sensors/index';
 		HttpModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
+		ToolbarModule,
 
 		DeviceListModule,
-		AllSensorsModule
+		MainModule
 	],
-	providers: [],
+	providers: [
+		DeviceDataService,
+		HeaderService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

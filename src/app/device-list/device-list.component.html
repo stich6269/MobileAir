@@ -1,5 +1,3 @@
-<app-toolbar title="Мои устройства"></app-toolbar>
-
 <md-list>
 	<md-list-item *ngFor="let device of devices" (click)="onDeviceClick(device)">
 		<md-icon *ngIf="!device.isActive" md-list-icon>cast</md-icon>

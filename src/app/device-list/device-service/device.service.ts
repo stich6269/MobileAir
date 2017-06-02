@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
-import { IDeviceListItem } from './device.interfaces';
 import { DEVICE_LIST } from './device.constants';
+import { IDevice } from '../../shared/services/device-data/device.interfaces';
 
 @Injectable()
 
 export class DeviceListService {
-	devices: Array<IDeviceListItem>;
+	devices: Array<IDevice>;
 
 	constructor(){
 		this.devices = DEVICE_LIST;
 	}
 
-	getDeviceList(): Array<IDeviceListItem>{
+	getDeviceList(): Array<IDevice>{
 		return this.devices;
 	}
 
-	addDevice(device: IDeviceListItem): void{
+	addDevice(device: IDevice): void{
 		this.devices.push(device);
 	}
 
 	removeDevice(deviceId: string): void{
-		this.devices = this.devices.filter((device: IDeviceListItem) => {
+		this.devices = this.devices.filter((device: IDevice) => {
 			return device.id !== deviceId;
 		})
 	}
 
-	editDevice(newDevice: IDeviceListItem): void{
-		let device: IDeviceListItem = this.devices
-			.find((device: IDeviceListItem) => {
+	editDevice(newDevice: IDevice): void{
+		let device: IDevice = this.devices
+			.find((device: IDevice) => {
 				return device.id === newDevice.id;
 			});
 
