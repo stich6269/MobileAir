@@ -1,0 +1,17 @@
+.content{
+	display: block;
+	position: absolute;
+	top: 64px;
+	bottom: 64px;
+	left: 0;
+	right: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+@media (max-width: 600px){
+	.content {
+		top: 56px;
+		bottom: 56px
+	}
+}
