@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SensorsComponent } from './sensors.component';
-import { MdCardModule, MdButtonModule } from '@angular/material';
+import { MdCardModule, MdButtonModule, MdIconModule } from '@angular/material';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		MdCardModule,
-		MdButtonModule
+		MdButtonModule,
+		MdIconModule
 	],
 	exports: [SensorsComponent],
 	declarations: [SensorsComponent]

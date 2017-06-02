@@ -7,7 +7,7 @@ import { NavbarModule } from '../shared/components/index';
 import { RouterModule } from '@angular/router';
 
 import { SensorsModule } from './sensors/index';
-import { ChartsModule } from './charts/index';
+import { AppChartsModule } from './charts/index';
 
 @NgModule({
 	imports: [
@@ -17,7 +17,7 @@ import { ChartsModule } from './charts/index';
 		RouterModule,
 
 		SensorsModule,
-		ChartsModule
+		AppChartsModule
 	],
 	exports: [MainComponent],
 	declarations: [MainComponent]

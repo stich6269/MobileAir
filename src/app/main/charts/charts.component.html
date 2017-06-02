@@ -1,19 +1,14 @@
 <md-card class="example-card">
-	<md-card-header>
-		<div md-card-avatar class="example-header-image"></div>
-		<md-card-title>Shiba Inu</md-card-title>
-		<md-card-subtitle>Dog Breed</md-card-subtitle>
-	</md-card-header>
-	<img md-card-image src="http://cdn3-www.dogtime.com/assets/uploads/gallery/siberian-husky-dog-breed-pictures/siberian-husky-dog-breed-pictures-5.jpg">
-	<md-card-content>
-		<p>
-			The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-			A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-			bred for hunting.
-		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button>LIKE</button>
-		<button md-button>SHARE</button>
-	</md-card-actions>
+
+
+	<canvas baseChart width="400" height="300"
+			[data]="lineChartData"
+			[labels]="lineChartLabels"
+			[options]="lineChartOptions"
+			[chartType]="lineChartType"
+			(chartHover)="chartHovered($event)"
+			(chartClick)="chartClicked($event)"></canvas>
+
+
+
 </md-card>
