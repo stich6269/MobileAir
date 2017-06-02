@@ -1,4 +1,6 @@
-import { Component,  Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeaderService } from '../../services/header/header.service';
+import { IHeader } from '../../services/header/header.interface';
 
 @Component({
 	selector: 'app-toolbar',
@@ -6,6 +8,13 @@ import { Component,  Input } from '@angular/core';
 	styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-	@Input() title:string;
-	@Input() subtitle:string;
+	data: IHeader;
+	
+	constructor(private headerService: HeaderService){
+		this.headerService
+			.getObservable()
+			.subscribe((data: IHeader) => {
+				this.data = data;
+			})
+	}
 }
