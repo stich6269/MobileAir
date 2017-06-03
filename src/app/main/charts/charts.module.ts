@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartsComponent } from './charts.component';
-import { MdButtonModule, MdCardModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdSlideToggleModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
 import { CardTitleModule } from '../../shared/components/index';
 
@@ -11,7 +11,8 @@ import { CardTitleModule } from '../../shared/components/index';
 		MdCardModule,
 		MdButtonModule,
 		ChartsModule,
-		CardTitleModule
+		CardTitleModule,
+		MdSlideToggleModule
 	],
 	exports: [ChartsComponent],
 	declarations: [ChartsComponent]

@@ -13,7 +13,8 @@ export class MainComponent {
 		private deviceDataService: DeviceDataService,
 		private headerService: HeaderService) {
 		this.headerService.setHeader({
-			title: this.deviceDataService.deviceName
+			title: this.deviceDataService.deviceName,
+			subtitle: this.deviceDataService.deviceId
 		})
 	}
 }

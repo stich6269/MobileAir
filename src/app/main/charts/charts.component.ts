@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderService } from '../../shared/services/header/header.service';
-import { slideInOutAnimation } from '../../shared/router-animation/index';
 
 @Component({
 	selector: 'app-charts',
 	templateUrl: './charts.component.html',
-	styleUrls: ['./charts.component.scss'],
-	animations: [slideInOutAnimation],
-	host: {'[@slideInOutAnimation]': ''}
+	styleUrls: ['./charts.component.scss']
 })
 
 export class ChartsComponent {
@@ -18,8 +15,7 @@ export class ChartsComponent {
 
 
 	lineChartData:Array<any> = [
-		[65, 59, 80, 81, 56, 55, 40],
-		[28, 48, 40, 19, 86, 27, 90]
+		{data: [65.3, 59.4, 80.8, 81.98, 56.45, 55.87, 40.05], label: 'Series A'}
 	];
 	lineChartLabels:Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
 	lineChartType:string = 'line';
@@ -31,7 +27,14 @@ export class ChartsComponent {
 	};
 
 	onSelect(sensorName: string): void{
-		console.log(sensorName);
+		let _lineChartData:Array<any> = new Array(this.lineChartData.length);
+		for (let i = 0; i < this.lineChartData.length; i++) {
+			_lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
+			for (let j = 0; j < this.lineChartData[i].data.length; j++) {
+				_lineChartData[i].data[j] = (Math.random() * 100) + 1;
+			}
+		}
+		this.lineChartData = _lineChartData;
 		this.selected = sensorName;
 	}
 

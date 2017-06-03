@@ -1,18 +1,44 @@
 <md-card class="custom-card">
 	<app-card-title
-		[icon]="'view_list'"
+		[icon]="'show_chart'"
 		[title]="'Среднее значение'"
 		[subtitle]="'Последнее обноление: 12:45'">
 	</app-card-title>
 
 	<div class="chart-holder">
 		<canvas baseChart width="400" height="300"
-				[data]="lineChartData"
+				[datasets]="lineChartData"
 				[labels]="lineChartLabels"
 				[options]="lineChartOptions"
 				[chartType]="lineChartType"
 				(chartHover)="chartHovered($event)"
 				(chartClick)="chartClicked($event)"></canvas>
+	</div>
+
+
+	<div class="chart-holder border-top">
+		<ul class="detail-data">
+			<li class="title">
+				Текущее
+				<div class="value">25.6</div>
+			</li>
+			<li class="title">
+				Среднее
+				<div class="value">22.2</div>
+			</li>
+			<li class="title">
+				Опт.
+				<div class="value">24</div>
+			</li>
+			<li class="title">
+				Макс.
+				<div class="value">28.9</div>
+			</li>
+			<li class="title">
+				Мин
+				<div class="value">15.6</div>
+			</li>
+		</ul>
 	</div>
 
 
@@ -69,4 +95,19 @@
 	</div>
 
 
+</md-card>
+
+
+<md-card class="control">
+	<div class="setup-item">
+			<span class="setup-label">
+				Автообновление
+			</span>
+			<span class="setup-control">
+				<md-slide-toggle
+					[color]="'primary'"
+					[checked]="false">
+				</md-slide-toggle>
+			</span>
+	</div>
 </md-card>

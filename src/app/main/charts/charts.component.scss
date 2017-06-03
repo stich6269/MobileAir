@@ -50,7 +50,30 @@ span.setup-control {
 	border-top: 1px solid rgba(0,0,0,.1);
 }
 
-.image-holder.active {
-	background-size: 35px;
-	transition: background-size 0.1s;
+.image-holder.active{
+	opacity: 0.8;
+}
+
+
+ul.detail-data {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+li.title {
+	font-size: 10px;
+	display: inline-block;
+	width: 20%;
+	text-align: center;
+}
+
+.value {
+	font-size: 18px;
+}
+
+.control{
+	padding: 12px 8px;
+	margin-top: 12px;
 }

@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { slideInOutAnimation } from '../../shared/router-animation/index';
 
 @Component({
 	selector: 'app-sensors',
 	templateUrl: './sensors.component.html',
-	styleUrls: ['./sensors.component.scss'],
-	animations: [slideInOutAnimation],
-	host: { '[@slideInOutAnimation]': '' }
-
+	styleUrls: ['./sensors.component.scss']
 })
 
 export class SensorsComponent  {
