@@ -11,24 +11,30 @@ import { slideInOutAnimation } from '../../shared/router-animation/index';
 })
 
 export class ChartsComponent {
-
+	selected: string = 'temperature';
 	constructor(private headerService:HeaderService) {
-		this.headerService.setHeader({title: 'Построение графиков'})
+		//this.headerService.setHeader({title: 'Построение графиков'})
 	}
 
-	// lineChart
-	public lineChartData:Array<any> = [
+
+	lineChartData:Array<any> = [
 		[65, 59, 80, 81, 56, 55, 40],
 		[28, 48, 40, 19, 86, 27, 90]
 	];
-	public lineChartLabels:Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
-	public lineChartType:string = 'line';
-	public lineChartOptions:any = {
+	lineChartLabels:Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
+	lineChartType:string = 'line';
+	lineChartOptions:any = {
 		legend: {
 			display: false
 		},
 		responsive: true
 	};
+
+	onSelect(sensorName: string): void{
+		console.log(sensorName);
+		this.selected = sensorName;
+	}
+
 	public chartClicked(e:any):void {
 		console.log(e);
 	}

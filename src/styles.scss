@@ -11,3 +11,34 @@ html, body{
 
 
 md-icon.green { color: #20d14c; }
+
+md-card.custom-card.mat-card {
+	padding: 5px 0;
+}
+
+
+.temperature{
+	background-image: url("./assets/icons/temperature.png");
+}
+.pressure{
+	background-image: url("./assets/icons/pressure.png");
+}
+.co2{
+	background-image: url("./assets/icons/co2.png");
+}
+.voc{
+	background-image: url("./assets/icons/voc.png");
+}
+.humidity{
+	background-image: url("./assets/icons/humidity.png");
+}
+.light{
+	background-image: url("./assets/icons/light.png");
+}
+.ultraviolet{
+	background-image: url("./assets/icons/ultraviolet.png");
+}
+.sound{
+	background-image: url("./assets/icons/sound.png");
+}
+

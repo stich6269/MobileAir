@@ -1,7 +1,7 @@
 
 
 
-<md-card class="example-card">
+<!--<md-card class="example-card">
 	<div class="data">
 		<div class="data-wrap">
 			<div class="title">Температура</div>
@@ -35,7 +35,7 @@
 	<div class="data">
 		<div class="data-wrap">
 			<div class="title">Высота</div>
-			<div class="value">Оптимально: ---</div>
+			<div class="value">Оптимально: -&#45;&#45;</div>
 		</div>
 		<div class="sensor-value">
 			125.3 м
@@ -91,8 +91,88 @@
 			35 %
 		</div>
 	</div>
-</md-card>
+</md-card>-->
 
+
+<md-card class="custom-card">
+	<app-card-title
+		[icon]="'view_list'"
+		[title]="'Все датчики устройства'"
+		[subtitle]="'Последнее обноление: 12:45'">
+	</app-card-title>
+
+	<div class="all-sensors-data">
+		<ul class="data-list">
+			<li class="data-item">
+				<div class="image-holder temperature"></div>
+				<div class="value-holder">1258</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder humidity"></div>
+				<div class="value-holder">1258</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder light"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder ultraviolet"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder pressure"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder co2"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder sound"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder voc"></div>
+				<div class="value-holder">---</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+	<div class="chart-holder">
+		<canvas baseChart width="400" height="300"
+				[data]="lineChartData"
+				[labels]="lineChartLabels"
+				[options]="lineChartOptions"
+				[chartType]="lineChartType"
+				(chartHover)="chartHovered($event)"
+				(chartClick)="chartClicked($event)"></canvas>
+	</div>
+
+	<div class="card-footer">
+		<div class="setup-item">
+			<span class="setup-label">
+				Автообновление
+			</span>
+			<span class="setup-control">
+				<md-slide-toggle
+					[color]="'primary'"
+					[checked]="false">
+				</md-slide-toggle>
+			</span>
+		</div>
+
+	</div>
+</md-card>
 
 
 

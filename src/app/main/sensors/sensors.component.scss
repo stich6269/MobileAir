@@ -5,39 +5,45 @@
 	box-sizing: border-box;
 }
 
-.value {
-	opacity: 0.6;
-	font-size: 15px;
-}
-
-.title {
-	text-transform: uppercase;
-	font-size: 15px;
-}
-
-md-card.example-card.mat-card {
+ul.data-list {
+	margin: 5px 0 0 0;
 	padding: 0;
+	list-style: none;
+	font-size: 0;
 }
 
-.data {
-	padding: 10px 10px;
-	border-bottom: 1px solid rgba(0,0,0,.07);
-}
-
-.example-card{
-	margin-bottom: 10px;
-}
-
-.data-wrap{
+li.data-item {
 	display: inline-block;
+	width: 12.5%;
+	height: 40px;
+	box-sizing: border-box;
 }
 
-.sensor-value{
-	display: inline-block;
+.image-holder{
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	opacity: 0.6;
+	height: 100%;
+}
+
+.value-holder {
+	text-align: center;
+	font-size: 12px;
+}
+
+.chart-holder {
+	padding: 25px 10px;
+}
+
+.card-footer {
+	border-top: 1px solid rgba(0,0,0,0.1);
+	padding: 11px 8px;
+}
+
+span.setup-control {
 	float: right;
-	width: 110px;
-	font-size: 25px;
-	text-align: right;
-	font-weight: 600;
-	color: #b5b5b5;
 }
+
+

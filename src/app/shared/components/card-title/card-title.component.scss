@@ -1,0 +1,26 @@
+.card-icon {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	padding-top: 5px;
+	color: #f99c63;
+	box-sizing: border-box;
+}
+
+.text-content {
+	display: inline-block;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.card-subtitle {
+	font-size: 0.7em;
+	opacity: 0.6;
+}
+
+.card-header {
+	padding: 0 8px;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
