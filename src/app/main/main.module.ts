@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 import { SensorsModule } from './sensors/index';
 import { AppChartsModule } from './charts/index';
+import { CanActivateDevice } from '../shared/guards/can-activate-device.guard';
 
 @NgModule({
 	imports: [
@@ -20,7 +21,8 @@ import { AppChartsModule } from './charts/index';
 		AppChartsModule
 	],
 	exports: [MainComponent],
-	declarations: [MainComponent]
+	declarations: [MainComponent],
+	providers: [CanActivateDevice]
 })
 export class MainModule {
 }

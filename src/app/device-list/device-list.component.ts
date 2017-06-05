@@ -19,8 +19,10 @@ export class DeviceListComponent {
 		private headerService: HeaderService,
 		private router: Router) {
 		
-		this.devices = this.deviceListService.getDeviceList();
-		this.headerService.setHeader({title: 'Мои устройства'})
+		this.headerService.setHeader({title: 'Мои устройства'});
+		deviceListService
+			.getDeviceList()
+			.subscribe((resp: Array<any>) => this.devices = resp)
 	}
 
 	onDeviceClick(device: IDevice): void {

@@ -3,8 +3,8 @@
 		<md-icon *ngIf="!device.isActive" md-list-icon>cast</md-icon>
 		<md-icon *ngIf="device.isActive" md-list-icon class="green">cast_connected</md-icon>
 
-		<h4 md-line>{{device.name}}</h4>
-		<p md-line>{{device.id}}</p>
+		<h4 md-line>{{device.model}}</h4>
+		<p md-line>{{device.deviceId}}</p>
 		<md-icon>more_vert</md-icon>
 	</md-list-item>
 </md-list>

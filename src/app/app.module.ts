@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AngularFireModule } from 'angularfire2';
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routes';
@@ -13,6 +18,7 @@ import { MainModule } from './main/index';
 import { DeviceDataService } from './shared/services/device-data/device-data.service';
 import { HeaderService } from './shared/services/header/header.service';
 import { ToolbarModule } from './shared/components/toolbar/toolbar.module';
+import { FIREBASE_CONFIG } from './shared/constants/firebase.constant';
 
 @NgModule({
 	declarations: [
@@ -25,6 +31,8 @@ import { ToolbarModule } from './shared/components/toolbar/toolbar.module';
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		ToolbarModule,
+		AngularFireModule.initializeApp(FIREBASE_CONFIG),
+		AngularFireDatabaseModule,
 
 		DeviceListModule,
 		MainModule

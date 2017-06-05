@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { DEVICE_LIST } from './device.constants';
 import { IDevice } from '../../shared/services/device-data/device.interfaces';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 
 export class DeviceListService {
-	devices: Array<IDevice>;
+	devices: FirebaseListObservable<Array<IDevice>>;
 
-	constructor(){
-		this.devices = DEVICE_LIST;
+	constructor(private database: AngularFireDatabase){
+		this.devices = database.list('/devices')
 	}
 
-	getDeviceList(): Array<IDevice>{
+	getDeviceList(): Observable<any> {
 		return this.devices;
 	}
 
@@ -19,18 +20,6 @@ export class DeviceListService {
 		this.devices.push(device);
 	}
 
-	removeDevice(deviceId: string): void{
-		this.devices = this.devices.filter((device: IDevice) => {
-			return device.id !== deviceId;
-		})
-	}
-
-	editDevice(newDevice: IDevice): void{
-		let device: IDevice = this.devices
-			.find((device: IDevice) => {
-				return device.id === newDevice.id;
-			});
-
-		Object.assign(device, newDevice);
-	}
+	removeDevice(deviceId: string): void{}
+	editDevice(newDevice: IDevice): void{}
 }
