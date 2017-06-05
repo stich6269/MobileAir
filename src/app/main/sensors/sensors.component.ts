@@ -1,24 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '../../shared/services/header/header.service';
-import { slideInOutAnimation } from '../../shared/router-animation/index';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-sensors',
 	templateUrl: './sensors.component.html',
-	styleUrls: ['./sensors.component.scss'],
-	animations: [slideInOutAnimation],
-	host: { '[@slideInOutAnimation]': '' }
-
+	styleUrls: ['./sensors.component.scss']
 })
 
-export class SensorsComponent implements OnInit {
+export class SensorsComponent  {
 
-	constructor(private headerService:HeaderService) {
-		this.headerService.setHeader({title: 'Датчики устройства'})
+	constructor() {
 	}
 
-	ngOnInit() {
-
+	// lineChart
+	public lineChartData:Array<any> = [
+		[65, 59, 80, 81, 56, 55, 40]
+	];
+	public lineChartLabels:Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
+	public lineChartType:string = 'line';
+	public lineChartOptions:any = {
+		legend: {
+			display: false
+		},
+		responsive: true
+	};
+	public chartClicked(e:any):void {
+		console.log(e);
 	}
 
+	public chartHovered(e:any):void {
+		console.log(e);
+	}
 }

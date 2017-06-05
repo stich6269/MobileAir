@@ -17,4 +17,8 @@ export class DeviceDataService {
 	get deviceId(): string {
 		return this.device ? this.device.id : null;
 	}
+
+	get deviceName(): string {
+		return this.device ? this.device.name : null;
+	}
 }

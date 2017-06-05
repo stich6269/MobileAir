@@ -1,19 +1,113 @@
-<md-card class="example-card">
-	<md-card-header>
-		<div md-card-avatar class="example-header-image"></div>
-		<md-card-title>Shiba Inu</md-card-title>
-		<md-card-subtitle>Dog Breed</md-card-subtitle>
-	</md-card-header>
-	<img md-card-image src="http://cdn3-www.dogtime.com/assets/uploads/gallery/siberian-husky-dog-breed-pictures/siberian-husky-dog-breed-pictures-5.jpg">
-	<md-card-content>
-		<p>
-			The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-			A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-			bred for hunting.
-		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button>LIKE</button>
-		<button md-button>SHARE</button>
-	</md-card-actions>
+<md-card class="custom-card">
+	<app-card-title
+		[icon]="'show_chart'"
+		[title]="'Среднее значение'"
+		[subtitle]="'Последнее обноление: 12:45'">
+	</app-card-title>
+
+	<div class="chart-holder">
+		<canvas baseChart width="400" height="300"
+				[datasets]="lineChartData"
+				[labels]="lineChartLabels"
+				[options]="lineChartOptions"
+				[chartType]="lineChartType"
+				(chartHover)="chartHovered($event)"
+				(chartClick)="chartClicked($event)"></canvas>
+	</div>
+
+
+	<div class="chart-holder border-top">
+		<ul class="detail-data">
+			<li class="title">
+				Текущее
+				<div class="value">25.6</div>
+			</li>
+			<li class="title">
+				Среднее
+				<div class="value">22.2</div>
+			</li>
+			<li class="title">
+				Опт.
+				<div class="value">24</div>
+			</li>
+			<li class="title">
+				Макс.
+				<div class="value">28.9</div>
+			</li>
+			<li class="title">
+				Мин
+				<div class="value">15.6</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="all-sensors-data">
+		<ul class="data-list">
+			<li class="data-item" (click)="onSelect('temperature')">
+				<div class="image-holder temperature"
+					[ngClass]="{active: selected === 'temperature'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('humidity')">
+				<div class="image-holder humidity"
+					[ngClass]="{active: selected === 'humidity'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('light')">
+				<div class="image-holder light"
+					 [ngClass]="{active: selected === 'light'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('ultraviolet')">
+				<div class="image-holder ultraviolet"
+					 [ngClass]="{active: selected === 'ultraviolet'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('pressure')">
+				<div class="image-holder pressure"
+					 [ngClass]="{active: selected === 'pressure'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('co2')">
+				<div class="image-holder co2"
+					 [ngClass]="{active: selected === 'co2'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('sound')">
+				<div class="image-holder sound"
+					 [ngClass]="{active: selected === 'sound'}">
+				</div>
+			</li>
+
+			<li class="data-item" (click)="onSelect('voc')">
+				<div class="image-holder voc"
+					 [ngClass]="{active: selected === 'voc'}">
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+</md-card>
+
+
+<md-card class="control">
+	<div class="setup-item">
+			<span class="setup-label">
+				Автообновление
+			</span>
+			<span class="setup-control">
+				<md-slide-toggle
+					[color]="'primary'"
+					[checked]="false">
+				</md-slide-toggle>
+			</span>
+	</div>
 </md-card>

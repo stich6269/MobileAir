@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HeaderService } from '../shared/services/header/header.service';
+import { DeviceDataService } from '../shared/services/device-data/device-data.service';
 
 @Component({
 	selector: 'app-main',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 
 export class MainComponent {
-
-	constructor() {}
+	constructor(
+		private deviceDataService: DeviceDataService,
+		private headerService: HeaderService) {
+		this.headerService.setHeader({
+			title: this.deviceDataService.deviceName,
+			subtitle: this.deviceDataService.deviceId
+		})
+	}
 }

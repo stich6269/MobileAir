@@ -1,44 +1,185 @@
 
-<md-card class="example-card">
-	<md-card-header>
-		<div md-card-avatar class="example-header-image"></div>
-		<md-card-title>Shiba Inu</md-card-title>
-		<md-card-subtitle>Dog Breed</md-card-subtitle>
-	</md-card-header>
-	<img md-card-image src="http://cdn3-www.dogtime.com/assets/uploads/gallery/siberian-husky-dog-breed-pictures/siberian-husky-dog-breed-pictures-5.jpg">
-	<md-card-content>
-		<p>
-			The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-			A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-			bred for hunting.
-		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button>LIKE</button>
-		<button md-button>SHARE</button>
-	</md-card-actions>
+
+
+<!--<md-card class="example-card">
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Температура</div>
+			<div class="value">Оптимально: 25.4С</div>
+		</div>
+		<div class="sensor-value">
+			22.6 C
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Влажность</div>
+			<div class="value">Оптимально: 45.7%</div>
+		</div>
+		<div class="sensor-value">
+			54.2 %
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Давление</div>
+			<div class="value">Оптимально: 520 рт.ст</div>
+		</div>
+		<div class="sensor-value">
+			458 р.с
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Высота</div>
+			<div class="value">Оптимально: -&#45;&#45;</div>
+		</div>
+		<div class="sensor-value">
+			125.3 м
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Уровень CO2</div>
+			<div class="value">Оптимально: 400 ппм</div>
+		</div>
+		<div class="sensor-value">
+			1587 пм
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Уровень VOC</div>
+			<div class="value">Оптимально: 10%</div>
+		</div>
+		<div class="sensor-value">
+			15 %
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Освещение</div>
+			<div class="value">Оптимально: 5000 юкс</div>
+		</div>
+		<div class="sensor-value">
+			3547 л.
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Ультрафиолет</div>
+			<div class="value">Оптимально: 25 с/см2</div>
+		</div>
+		<div class="sensor-value">
+			154 с.
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="data-wrap">
+			<div class="title">Уровень шума</div>
+			<div class="value">Заполнение: 48%</div>
+		</div>
+		<div class="sensor-value">
+			35 %
+		</div>
+	</div>
+</md-card>-->
+
+
+<md-card class="custom-card">
+	<app-card-title
+		[icon]="'view_list'"
+		[title]="'Все датчики устройства'"
+		[subtitle]="'Последнее обноление: 12:45'">
+	</app-card-title>
+
+	<div class="all-sensors-data">
+		<ul class="data-list">
+			<li class="data-item">
+				<div class="image-holder temperature"></div>
+				<div class="value-holder">1258</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder humidity"></div>
+				<div class="value-holder">1258</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder light"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder ultraviolet"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder pressure"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder co2"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder sound"></div>
+				<div class="value-holder">---</div>
+			</li>
+
+			<li class="data-item">
+				<div class="image-holder voc"></div>
+				<div class="value-holder">---</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+	<div class="chart-holder">
+		<canvas baseChart width="400" height="300"
+				[data]="lineChartData"
+				[labels]="lineChartLabels"
+				[options]="lineChartOptions"
+				[chartType]="lineChartType"
+				(chartHover)="chartHovered($event)"
+				(chartClick)="chartClicked($event)"></canvas>
+	</div>
 </md-card>
 
-<br>
-<br>
 
-<md-card class="example-card">
-	<md-card-header>
-		<div md-card-avatar class="example-header-image"></div>
-		<md-card-title>Shiba Inu</md-card-title>
-		<md-card-subtitle>Dog Breed</md-card-subtitle>
-	</md-card-header>
-	<img md-card-image src="http://cdn3-www.dogtime.com/assets/uploads/gallery/siberian-husky-dog-breed-pictures/siberian-husky-dog-breed-pictures-5.jpg">
-	<md-card-content>
-		<p>
-			The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-			A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-			bred for hunting.
-		</p>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button>LIKE</button>
-		<button md-button>SHARE</button>
-	</md-card-actions>
+
+<md-card class="control">
+	<div class="setup-item">
+			<span class="setup-label">
+				Автообновление
+			</span>
+			<span class="setup-control">
+				<md-slide-toggle
+					[color]="'primary'"
+					[checked]="false">
+				</md-slide-toggle>
+			</span>
+	</div>
 </md-card>
+
+
+
+
+
+
+
+
 

@@ -11,3 +11,77 @@ html, body{
 
 
 md-icon.green { color: #20d14c; }
+
+md-card.custom-card.mat-card {
+	padding: 5px 0;
+}
+
+
+
+
+
+.border-top{
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.temperature{
+	background-image: url("./assets/icons/temperature.png");
+}
+.temperature.active{
+	 background-image: url("./assets/icons/temperature-active.png");
+ }
+
+
+.pressure{
+	background-image: url("./assets/icons/pressure.png");
+}
+.pressure.active{
+	background-image: url("./assets/icons/pressure-active.png");
+}
+
+.co2{
+	background-image: url("./assets/icons/co2.png");
+}
+.co2.active{
+	background-image: url("./assets/icons/co2-active.png");
+}
+
+
+.voc{
+	background-image: url("./assets/icons/voc.png");
+}
+.voc.active{
+	background-image: url("./assets/icons/voc-active.png");
+}
+
+
+.humidity{
+	background-image: url("./assets/icons/humidity.png");
+}
+.humidity.active{
+	background-image: url("./assets/icons/humidity-active.png");
+}
+
+
+.light{
+	background-image: url("./assets/icons/light.png");
+}
+.light.active{
+	background-image: url("./assets/icons/light-active.png");
+}
+
+
+.ultraviolet{
+	background-image: url("./assets/icons/ultraviolet.png");
+}
+.ultraviolet.active{
+	background-image: url("./assets/icons/ultraviolet-active.png");
+}
+
+.sound{
+	background-image: url("./assets/icons/sound.png");
+}
+.sound.active{
+	background-image: url("./assets/icons/sound-active.png");
+}
+

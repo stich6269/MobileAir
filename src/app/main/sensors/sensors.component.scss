@@ -4,3 +4,52 @@
 	padding: 10px;
 	box-sizing: border-box;
 }
+
+ul.data-list {
+	margin: 5px 0 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+li.data-item {
+	display: inline-block;
+	width: 12.5%;
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.image-holder{
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	opacity: 0.6;
+	height: 100%;
+}
+
+.value-holder {
+	text-align: center;
+	font-size: 12px;
+}
+
+.chart-holder {
+	padding: 15px 10px;
+}
+
+.card-footer {
+	border-top: 1px solid rgba(0,0,0,0.1);
+	padding: 11px 8px;
+}
+
+span.setup-control {
+	float: right;
+}
+
+
+.control{
+	padding: 12px 8px;
+	margin-top: 12px;
+}
+
+
