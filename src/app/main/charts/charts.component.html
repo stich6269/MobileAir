@@ -7,12 +7,15 @@
 
 	<div class="chart-holder">
 		<canvas baseChart width="400" height="300"
-				[datasets]="lineChartData"
+				[data]="lineChartData"
 				[labels]="lineChartLabels"
-				[options]="lineChartOptions"
-				[chartType]="lineChartType"
-				(chartHover)="chartHovered($event)"
-				(chartClick)="chartClicked($event)"></canvas>
+				[chartType]="'line'"
+				[options]="{
+					legend: {display: false},
+					animation: false,
+					responsive: true
+				}">
+		</canvas>
 	</div>
 
 
@@ -106,7 +109,8 @@
 			<span class="setup-control">
 				<md-slide-toggle
 					[color]="'primary'"
-					[checked]="false">
+					(change)="onAutoUpdate($event)"
+					[checked]="autoUpdate">
 				</md-slide-toggle>
 			</span>
 	</div>
