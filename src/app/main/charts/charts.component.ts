@@ -9,9 +9,8 @@ import { HeaderService } from '../../shared/services/header/header.service';
 
 export class ChartsComponent {
 	selected: string = 'temperature';
-	constructor(private headerService:HeaderService) {
-		//this.headerService.setHeader({title: 'Построение графиков'})
-	}
+
+	constructor() {}
 
 
 	lineChartData:Array<any> = [
@@ -20,22 +19,12 @@ export class ChartsComponent {
 	lineChartLabels:Array<any> = ['1', '2', '3', '4', '5', '6', '7'];
 	lineChartType:string = 'line';
 	lineChartOptions:any = {
-		legend: {
-			display: false
-		},
+		legend: {display: false},
 		responsive: true
 	};
 
 	onSelect(sensorName: string): void{
-		let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-		for (let i = 0; i < this.lineChartData.length; i++) {
-			_lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-			for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-				_lineChartData[i].data[j] = (Math.random() * 100) + 1;
-			}
-		}
-		this.lineChartData = _lineChartData;
-		this.selected = sensorName;
+		console.log(sensorName);
 	}
 
 	public chartClicked(e:any):void {

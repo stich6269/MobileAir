@@ -22,4 +22,5 @@ export interface IDeviceData {
 	ultraviolet: number;
 	slavel: number;
 	sdensity: number;
+	timestamp: number;
 }
