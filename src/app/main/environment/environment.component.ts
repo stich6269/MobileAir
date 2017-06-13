@@ -13,10 +13,15 @@ export class EnvironmentComponent implements OnInit {
 	lastItemSub: Subscription;
 	displayLast: number = 30;
 	light: IStat;
+	voc: IStat;
 
 	@ViewChild(BaseChartDirective) chart: BaseChartDirective;
 	constructor(private deviceDataService: DeviceDataService) {
 		this.light = new IStat({});
+		this.voc = new IStat({
+			name: 'voc',
+			opt: 100
+		});
 	}
 
 	ngOnInit(): void{
@@ -28,22 +33,22 @@ export class EnvironmentComponent implements OnInit {
 	}
 
 	loadData(): void {
-		let lastListSub: Subscription = this.deviceDataService
+		this.deviceDataService
 			.getLast(this.displayLast)
+			.take(1)
 			.subscribe((data: IDeviceData[]) => {
 				if(data && data.length){
 					this.light.update(data);
-					console.log(data);
-					lastListSub.unsubscribe();
+					this.voc.update(data);
 				}
-
 			});
 
 		this.lastItemSub = this.deviceDataService.getLast()
 			.subscribe((data: Array<IDeviceData>) => {
 				if(data && data.length){
+					console.log(data[0])
 					this.light.addPoint(data[0]);
-					console.log(this.light);
+					this.voc.addPoint(data[0]);
 				}
 			});
 	}
@@ -53,9 +58,8 @@ export class IStat {
 	private show: boolean = false;
 	private name: string = 'light';
 	private depth: number = 30;
-	title: string = 'Превышен оптимальный параметр';
-	description: string = 'По возможности устраните воздействие негативного фактора, так как это влияет на ' +
-		'ваше сомочуствие / продуктивной / настроение. Следуйте рекомендациям';
+	title: string;
+	description: string;
 
 
 	optimal: number = 20;
@@ -67,10 +71,10 @@ export class IStat {
 
 	data: IDeviceData[];
 	constructor({title, description, opt, name}: any) {
-		/*this.title = title;
-		this.description = description;
-		this.optimal = opt;
-		this.name = name;*/
+		if(title) this.title = title;
+		if(description) this.description = description;
+		if(opt) this.optimal = opt;
+		if(name) this.name = name;
 	}
 
 	update(samplesArr?: IDeviceData[]): void{
