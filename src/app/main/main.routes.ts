@@ -3,6 +3,7 @@ import { MainComponent } from './main.component';
 
 import { SensorsRouter } from './sensors/index';
 import { ChartsRouter } from './charts/index';
+import { EnvironmentRouter } from './environment/index';
 import { CanActivateDevice } from '../shared/guards/can-activate-device.guard';
 
 export const MainRoutes: Route = {
@@ -12,6 +13,7 @@ export const MainRoutes: Route = {
 	children: [
 		SensorsRouter,
 		ChartsRouter,
+		EnvironmentRouter,
 		{
 			path: '',
 			redirectTo: 'sensors',

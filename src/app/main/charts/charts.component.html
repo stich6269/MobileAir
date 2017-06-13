@@ -83,9 +83,9 @@
 				</div>
 			</li>
 
-			<li class="data-item" (click)="onSelect('sound')">
+			<li class="data-item" (click)="onSelect('slavel')">
 				<div class="image-holder sound"
-					 [ngClass]="{active: selected === 'sound'}">
+					 [ngClass]="{active: selected === 'slavel'}">
 				</div>
 			</li>
 
@@ -109,7 +109,7 @@
 			<span class="setup-control">
 				<md-slide-toggle
 					[color]="'primary'"
-					(change)="onAutoUpdate($event)"
+					(change)="onAutoUpdate()"
 					[checked]="autoUpdate">
 				</md-slide-toggle>
 			</span>

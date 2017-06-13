@@ -4,3 +4,32 @@
 	padding: 10px;
 	box-sizing: border-box;
 }
+
+
+.detail-data {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+
+	.title {
+		font-size: 10px;
+		display: inline-block;
+		width: 20%;
+		text-align: center;
+	}
+
+	.current{
+		color: red;
+	}
+
+	.value {
+		font-size: 18px;
+	}
+}
+
+.fixing{
+	padding: 12px;
+	font-size: 0.8em;
+	text-align: center;
+}

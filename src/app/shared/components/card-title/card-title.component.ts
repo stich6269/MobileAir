@@ -9,4 +9,5 @@ export class CardTitleComponent{
 	@Input() title: string;
 	@Input() subtitle: string;
 	@Input() icon: string;
+	@Input() color: string;
 }

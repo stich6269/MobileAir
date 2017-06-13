@@ -39,7 +39,7 @@ export class ChartsComponent implements OnInit, OnDestroy{
 		this.loadData();
 	}
 
-	onAutoUpdate({checked}: any): void {
+	onAutoUpdate(): void {
 		this.autoUpdate = !this.autoUpdate;
 		if(!this.autoUpdate) this.lastItemSub.unsubscribe();
 		else this.ngOnInit();
@@ -65,6 +65,7 @@ export class ChartsComponent implements OnInit, OnDestroy{
 		this.lineChartData.splice(0);
 
 		data.forEach((item: IDeviceData) => {
+			if(this.selected === 'voc') item.voc = 10000 - item.voc;
 			this.lineChartLabels.push(this.getTimeString(item.timestamp));
 			this.lineChartData.push(item[this.selected]);
 		});
@@ -77,6 +78,8 @@ export class ChartsComponent implements OnInit, OnDestroy{
 		if(this.lineChartLabels.length){
 			let time: string = this.getTimeString(data.timestamp),
 				length: number = this.displayLast - 1;
+
+			if(this.selected === 'voc') data.voc = 10000 - data.voc;
 
 			if(this.lineChartLabels.length > length){
 				this.lineChartLabels.shift();

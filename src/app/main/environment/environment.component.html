@@ -1,3 +1,25 @@
-<p>
-  environment works!
-</p>
+<md-card *ngIf="light?.show" class="custom-card">
+	<app-card-title
+		[icon]="'error'"
+		[title]="light.title"
+		[subtitle]="'Обнаруженно в: ' + light.time">
+	</app-card-title>
+
+	<div class="error-holder">
+		<div class="fixing">{{light.description}}</div>
+
+		<ul class="detail-data">
+			<li class="title current">Текущее<div class="value">{{light.current}}</div></li>
+			<li class="title">Среднее<div class="value">{{light.current}}</div></li>
+			<li class="title">Опт.<div class="value">{{light.optimal}}</div></li>
+			<li class="title">Макс.<div class="value">{{light.max}}</div></li>
+			<li class="title">Мин<div class="value">{{light.min}}</div></li>
+		</ul>
+	</div>
+</md-card>
+
+
+
+
+
+
