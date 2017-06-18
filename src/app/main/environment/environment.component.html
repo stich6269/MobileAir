@@ -1,16 +1,15 @@
 <md-card *ngIf="light?.show" class="custom-card">
 	<app-card-title
 		[icon]="'error'"
-		[title]="light.title || 'Превышен оптимальный параметр'"
+		[title]="'Низкий уровень освещения'"
 		[subtitle]="'Обнаруженно в: ' + light.time">
 	</app-card-title>
 
 	<div class="error-holder">
 		<div class="fixing">
-			<span *ngIf="light.description">{{light.description}}</span>
 			<span *ngIf="!light.description">
-				По возможности устраните воздействие негативного фактора, так как это влияет на
-				ваше сомочуствие / продуктивной / настроение. Следуйте рекомендациям
+				По возможности, задействуйте дополнительные источники освещения для восстановления
+				более приятного микроклимата в помещении
 			</span>
 
 		</div>
@@ -18,9 +17,9 @@
 		<ul class="detail-data">
 			<li class="title current">Текущее<div class="value">{{light.current}}</div></li>
 			<li class="title">Среднее<div class="value">{{light.current}}</div></li>
-			<li class="title">Опт.<div class="value">{{light.optimal}}</div></li>
-			<li class="title">Макс.<div class="value">{{light.max}}</div></li>
-			<li class="title">Мин<div class="value">{{light.min}}</div></li>
+			<li class="title">Опт.<div class="value">{{(light.from + light.to) / 2}}</div></li>
+			<li class="title">Макс.<div class="value">{{light.to}}</div></li>
+			<li class="title">Мин<div class="value">{{light.from}}</div></li>
 		</ul>
 	</div>
 </md-card>
@@ -28,16 +27,15 @@
 <md-card *ngIf="voc?.show" class="custom-card">
 	<app-card-title
 		[icon]="'error'"
-		[title]="voc.title || 'Превышен оптимальный параметр'"
+		[title]="'Высокий уровень VOC'"
 		[subtitle]="'Обнаруженно в: ' + voc.time">
 	</app-card-title>
 
 	<div class="error-holder">
 		<div class="fixing">
-			<span *ngIf="voc.description">{{voc.description}}</span>
 			<span *ngIf="!voc.description">
-				По возможности устраните воздействие негативного фактора, так как это влияет на
-				ваше сомочуствие / продуктивной / настроение. Следуйте рекомендациям
+				Пожалуйста, проветрите помещение и устраните причину загрязнения воздуха
+				(краска/растворитель/спирт/парфюмы и т.д)
 			</span>
 
 		</div>
@@ -45,7 +43,7 @@
 		<ul class="detail-data">
 			<li class="title current">Текущее<div class="value">{{voc.current}}</div></li>
 			<li class="title">Среднее<div class="value">{{voc.current}}</div></li>
-			<li class="title">Опт.<div class="value">{{voc.optimal}}</div></li>
+			<li class="title">Опт.<div class="value">{{voc.from}}</div></li>
 			<li class="title">Макс.<div class="value">{{voc.max}}</div></li>
 			<li class="title">Мин<div class="value">{{voc.min}}</div></li>
 		</ul>

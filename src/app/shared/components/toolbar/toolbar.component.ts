@@ -10,7 +10,7 @@ import { Router, UrlSegment } from '@angular/router';
 })
 export class ToolbarComponent {
 	data: IHeader;
-	url: UrlSegment[];
+	url: string;
 
 	constructor(
 		private router: Router,

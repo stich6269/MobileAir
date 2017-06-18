@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { DeviceDataService } from '../device-data/device-data.service';
 import { IDeviceData } from '../device-data/device.interfaces';
 import { ISensorsSetup, SENSORS_SETUP, IParams, ISensorAlert } from './data-trecking.constants';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 
@@ -11,21 +13,21 @@ export class DataTrackingService {
 	private sensor: string = 'co2';
     private sensorsSetup: ISensorsSetup;
 
-	public healthStream: Observable<any>;
-	public alertsStream: Observable<any>;
-	public timeStream: Observable<any>;
+	public healthStream: EventEmitter<any>;
+	public alertsStream: EventEmitter<any>;
+	public timeStream: EventEmitter<any>;
 
 	constructor (private deviceDataService: DeviceDataService) {
-		this.healthStream = new Observable();
-		this.alertsStream = new Observable();
-		this.timeStream = new Observable();
+		this.healthStream = new EventEmitter();
+		this.alertsStream = new EventEmitter();
+		this.timeStream = new EventEmitter();
         this.sensorsSetup = SENSORS_SETUP;
 		this.trackingStart();
 	};
 
 	trackingStart(): void {
-        let setStore: Function = this.setStore.bind(this),
-            addPoint: Function = this.addPoint.bind(this);
+        let setStore: (value: any) => void = this.setStore.bind(this),
+            addPoint: (value: any) => void = this.addPoint.bind(this);
 
 		this.deviceDataService
 			.getLast(this.depth)
@@ -59,9 +61,6 @@ export class DataTrackingService {
         this.alertsTrack();
 	};
 
-
-    //let's track if all parameters are ok, if not
-    //calculate data and trigger an events with alerts
     alertsTrack(): void {
         let sample: IDeviceData = this.store.pop(),
             sensors: string[] = Object.keys(sample),
@@ -111,15 +110,4 @@ export class DataTrackingService {
         alert.average = tempAvgSum / this.store.length;
         return alert;
     }
-
-
-
-	private getPercent(sensorName:string, val:number): void {
-
-	};
-
-	private decodeTime(timestamp: number): void {
-
-	}
-
 }
